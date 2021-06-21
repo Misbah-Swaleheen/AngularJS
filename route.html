@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <style>
+        #app1 ul li{
+            display: inline-block;
+        }
+        #app1 ul li a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div ng-app="myApp" id="app1">
+        <ul>
+            <li><a href="#/">Website Development</a></li>
+            <li><a href="#Html">Html5 Tutorial</a></li>
+            <li><a href="#Css">CSS3 Tutorial</a></li>
+            <li><a href="#Js">Javascript Tutorial</a></li>
+        </ul>
+
+        <div ng-view></div>
+    </div>
+
+    
+
+    <script>
+        var app=angular.module("myApp",["ngRoute"]);
+        app.config(function ($routeProvider) {
+            $routeProvider.when("/",{
+                templateUrl: "https://medium.com/@Vincentxia77/beginners-guide-how-to-learn-web-designing-at-home-796c01b8c0c2"    
+            }).when("/Html",{
+                templateUrl: "https://www.w3schools.com/html/"
+            })
+            .when("/Css",{
+                templateUrl: "https://www.w3schools.com/css/"
+            })
+            .when("/Js",{
+                templateUrl: "https://www.w3schools.com/js/"
+            })
+        })
+    </script>
+</body>
+</html>

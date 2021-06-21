@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    
+</head>
+<body>
+      <div ng-app="myapp" ng-controller="control">
+         <h1 > price : {{price | currency}}</h1>
+         <h2> Rupee price ; {{ Rprice| currency: "Rs " }}</h2>
+         
+      <p>Date = {{ today | date: "dd.MM.y"}}</p>
+
+
+      <p>Student Names</p>
+      <ul>
+          <li ng-repeat="name in names">
+              {{name | uppercase}}
+          </li>
+      </ul>
+
+      <p>Student Names</p>
+      <ul>
+          <li ng-repeat="name in names">
+              {{name | lowercase}}
+          </li>
+      </ul>
+
+      <p>Search Particular Student Name</p>
+      <input type="text" ng-model="search" placeholder="enter name">
+      <ul>
+          <li ng-repeat="name in names | filter:search">
+              {{name}}
+          </li>
+      </ul>
+      </div>
+
+
+      <script>
+
+         var app = angular.module('myapp',[]);
+         app.controller('control', function($scope){
+             $scope.price = 400;
+             $scope.Rprice = 3000;
+             $scope.today = new Date();
+             $scope.names=['Misbah', 'Hafsa', 'Marium', 'Kinza', 'Fariha']
+         })
+      </script>
+</body>
+</html>
